@@ -3,29 +3,52 @@ log = console.log;
 /* DEL 1 FÄRGER */
 log('DEL 1 FÄRGER')
 
-class Color {
-  constructor(r, g, b, a) {
-    this.r = r;
-    this.g = g;
-    this.b = b;
-    this.a = a;
-  }
-
-  rgb() {
-    log('rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')')
-  }
-  rgba() {
-    log('rgba(' + this.r + ', ' + this.g + ', ' + this.b + ', ' + this.a + ')')
-  }
-  hex() {
-    log('#' + (1 << 24 | this.r << 16 | this.g << 8 | this.b).toString(16).slice(1))
-  }
+function Color(r, g, b, a) {
+  this.r = r
+  this.g = g
+  this.b = b
+  this.a = a
 }
 
-const color = new Color(255, 0, 255, 1)
-color.rgb();
-color.rgba();
-color.hex();
+Color.prototype.rgb = function() {
+    return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")"
+};
+Color.prototype.rgba = function() {
+    return "rgba(" + this.r + ", " + this.g + ", " + this.b + ", " + this.a + ")"
+};
+Color.prototype.hex = function() {
+    return "#" + (1 << 24 | this.r << 16 | this.g << 8 | this.b).toString(16).slice(1);
+};
+
+const chosenColor = new Color(255, 0, 255, 1)
+
+console.log(chosenColor.rgb())
+console.log(chosenColor.rgba())
+console.log(chosenColor.hex())
+
+// class Color {
+//   constructor(r, g, b, a) {
+//     this.r = r;
+//     this.g = g;
+//     this.b = b;
+//     this.a = a;
+//   }
+
+//   rgb() {
+//     log('rgb(' + this.r + ', ' + this.g + ', ' + this.b + ')')
+//   }
+//   rgba() {
+//     log('rgba(' + this.r + ', ' + this.g + ', ' + this.b + ', ' + this.a + ')')
+//   }
+//   hex() {
+//     log('#' + (1 << 24 | this.r << 16 | this.g << 8 | this.b).toString(16).slice(1))
+//   }
+// }
+
+// const color = new Color(255, 0, 255, 1)
+// color.rgb();
+// color.rgba();
+// color.hex();
 
 /* DEL 2 OOP POKER */
 log('DEL 2 OOP POKER')
